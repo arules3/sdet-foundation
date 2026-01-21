@@ -7,7 +7,6 @@ public class TestCase {
     private String expectedResult;
     private String status;
 
-
     public TestCase(String id, String title, String steps, String expectedResult) {
         this.id = id;
         this.title = title;
@@ -23,6 +22,12 @@ public class TestCase {
         }
         this.status = status.toUpperCase();
     }
+
+    public String getId() {
+        return id;
+    }
+
+
 
 
     public boolean isPassed() {
