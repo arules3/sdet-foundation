@@ -17,14 +17,25 @@ public class TestCase {
         this.status = "NOT_EXECUTED";
     }
 
-
-
     public void updateStatus(String status) {
-        this.status = status;
+        if(status == null || status.isEmpty()) {
+            System.out.println("Invalid Status , could not resolve: " + status);
+        }
+        this.status = status != null ? status.toUpperCase() : null;
+    }
+
+
+    public boolean isPassed() {
+        return "PASS".equals(status);
+    }
+
+    public boolean isFailed() {
+        return  "FAIL".equals(status);
     }
 
 
     public void printSummary() {
-        System.out.println("[" + id + "] " + title + " => " + status);
+        String result = isPassed() ? "PASSED :-)" : "NOT PASSED :-(";
+        System.out.println("[" + id + "] " + title + " => " + result);
     }
 }

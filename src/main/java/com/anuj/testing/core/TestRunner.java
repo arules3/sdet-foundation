@@ -12,5 +12,9 @@ public class TestRunner {
         loginTest.updateStatus("PASS");
         loginTest.printSummary();
 
+
+        System.out.println("Is test passed? " + loginTest.isPassed());
+
+
     }
 }
