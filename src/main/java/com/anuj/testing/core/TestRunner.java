@@ -11,5 +11,6 @@ public class TestRunner {
         loginTest.printSummary();
         loginTest.updateStatus("PASS");
         loginTest.printSummary();
+
     }
 }
