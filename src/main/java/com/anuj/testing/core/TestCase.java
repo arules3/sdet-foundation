@@ -8,8 +8,7 @@ public class TestCase {
     private String status;
 
 
-
-    public TestCase(String id , String title , String steps , String expectedResult){
+    public TestCase(String id, String title, String steps, String expectedResult) {
         this.id = id;
         this.title = title;
         this.steps = steps;
@@ -18,10 +17,11 @@ public class TestCase {
     }
 
     public void updateStatus(String status) {
-        if(status == null || status.isEmpty()) {
-            System.out.println("Invalid Status , could not resolve: " + status);
+        if (status == null || status.isEmpty()) {
+            System.out.println("Invalid status, update ignored");
+            return;
         }
-        this.status = status != null ? status.toUpperCase() : null;
+        this.status = status.toUpperCase();
     }
 
 
@@ -30,12 +30,14 @@ public class TestCase {
     }
 
     public boolean isFailed() {
-        return  "FAIL".equals(status);
+        return "FAIL".equals(status);
     }
 
 
     public void printSummary() {
-        String result = isPassed() ? "PASSED :-)" : "NOT PASSED :-(";
+        String result = isPassed() ? "PASS" : "NOT PASSED";
         System.out.println("[" + id + "] " + title + " => " + result);
     }
+
+
 }
