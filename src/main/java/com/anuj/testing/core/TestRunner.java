@@ -5,39 +5,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestRunner {
+
+
+    private static void executeTests(TestCase testCase) {
+        if(testCase.getId().equals("TC001")){
+            testCase.updateStatus("PASS");
+        }
+
+        else  {testCase.updateStatus("FAIL");}
+
+        testCase.printSummary();
+    }
+
+
+    private static List<TestCase> createTestCases() {
+        List<TestCase> testCases = new ArrayList<>();
+        testCases.add(new TestCase("TC002",
+                "login testcase",
+                "Enter username and password",
+                "User should land on dashboard"));
+
+        testCases.add(new TestCase("TC003",
+                "login testcase",
+                "Enter username and password",
+                "User should land on dashboard"));
+
+
+        return testCases;
+
+    }
+
+
     public static void main(String[] args) {
 
-        List<TestCase> testcases = new ArrayList<>();
-
-
-        testcases.add(new TestCase("TC002",
-                "login testcase",
-                "Enter username and password",
-                "User should land on dashboard"));
-        testcases.add(new TestCase("TC003",
-                "login testcase",
-                "Enter username and password",
-                "User should land on dashboard"));
-
-        TestCase loginTest = new TestCase("TC001",
-                "login testcase",
-                "Enter username and password",
-                "User should land on dashboard");
-
-
-        loginTest.printSummary();
-        loginTest.updateStatus("PASS");
-        loginTest.printSummary();
-
+        List<TestCase> testcases = createTestCases();
 
         for (TestCase test : testcases) {
-            if (test.getId().equals("TC001")) {
-                test.updateStatus("PASS");
-            } else {
-                test.updateStatus("FAIL");
-            }
-
-            test.printSummary();
+            executeTests(test);
         }
 
 
