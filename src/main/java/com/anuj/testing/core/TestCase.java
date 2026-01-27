@@ -1,5 +1,8 @@
 package com.anuj.testing.core;
 
+import java.util.List;
+import java.util.Map;
+
 public class TestCase {
     private String id;
     private String title;
@@ -27,8 +30,9 @@ public class TestCase {
         return id;
     }
 
-
-
+    public String getStatus() {
+        return status;
+    }
 
     public boolean isPassed() {
         return "PASS".equals(status);
@@ -43,6 +47,16 @@ public class TestCase {
         String result = isPassed() ? "PASS" : "NOT PASSED";
         System.out.println("[" + id + "] " + title + " => " + result);
     }
+
+
+
+
+
+
+
+
+
+
 
 
 }
